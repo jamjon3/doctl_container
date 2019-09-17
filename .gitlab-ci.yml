@@ -15,4 +15,4 @@ build:
   stage: build
   script:
     - echo $CI_REGISTRY_IMAGE
-    - docker build -t doctl .
+    - docker build -t $DO_REGISTRY/doctl:latest .
