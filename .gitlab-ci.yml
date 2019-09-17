@@ -18,3 +18,5 @@ build:
     - echo $DO_REGISTRY/$CI_PROJECT_PATH:latest
     - docker build -t $DO_REGISTRY/$CI_PROJECT_PATH:latest .
     - docker push $DO_REGISTRY/$CI_PROJECT_PATH:latest
+  tags:
+    - cluster
