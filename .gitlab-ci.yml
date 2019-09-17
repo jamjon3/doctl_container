@@ -15,4 +15,5 @@ build:
   stage: build
   script:
     - echo $CI_REGISTRY_IMAGE
+    - echo $DO_REGISTRY/$CI_PROJECT_PATH:latest
     - docker build -t $DO_REGISTRY/doctl:latest .
