@@ -17,6 +17,7 @@ stages:
 build_container:
   stage: build
   script:
+    - kubectl get pods -n default
     - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
     - echo $CI_REGISTRY_IMAGE
     - echo $DO_REGISTRY/$CI_PROJECT_PATH:latest
