@@ -13,11 +13,13 @@ services:
 
 stages:
   - build
+  - deploy
+before_script: 
+  - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
 
 build_container:
   stage: build
   script:
-    - kubectl get pods -n default
     - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
     - echo $CI_REGISTRY_IMAGE
     - echo $DO_REGISTRY/$CI_PROJECT_PATH:latest
@@ -25,3 +27,9 @@ build_container:
     - docker push $DO_REGISTRY/$CI_PROJECT_PATH:latest
   tags:
     - cluster
+
+deploy_test:
+  image: $DO_REGISTRY/$CI_PROJECT_PATH:latest
+  stage: deploy
+  script:
+    - kubectl get pods -n default
