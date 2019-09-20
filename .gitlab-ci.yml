@@ -1,23 +1,15 @@
-image: docker:stable
+image: docker:latest
 
 services:
   - docker:dind
-#    entrypoint: ["env", "-u", "DOCKER_HOST"]
-#    command: ["dockerd-entrypoint.sh"]
 
-variables:
-  DOCKER_HOST: tcp://docker:2375
-  DOCKER_DRIVER: overlay2
-  # See https://github.com/docker-library/docker/pull/166
-  DOCKER_TLS_CERTDIR: ""
+stages:
+  - build
 
-before_script:
-  - docker info
-  - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
-
-build:
+build_container:
   stage: build
   script:
+    - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
     - echo $CI_REGISTRY_IMAGE
     - echo $DO_REGISTRY/$CI_PROJECT_PATH:latest
     - docker build -t $DO_REGISTRY/$CI_PROJECT_PATH:latest .
