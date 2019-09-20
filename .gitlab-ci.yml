@@ -35,3 +35,5 @@ deploy_test:
   stage: deploy
   script:
     - kubectl get pods -n default
+  tags:
+    - cluster
