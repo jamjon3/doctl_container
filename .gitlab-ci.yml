@@ -32,10 +32,15 @@ deploy_test:
   variables:
     DOCKER_AUTH_CONFIG: $DOCKER_AUTH_CONFIG
   image: 
-    name: $DO_REGISTRY/$CI_PROJECT_PATH:latest
+    name: digitalocean/doctl:latest
+   #  name: $DO_REGISTRY/$CI_PROJECT_PATH:latest
     entrypoint: [""]
   stage: deploy
   script:
+    - cd /usr/local/bin; curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    - chmod +x /usr/local/bin/kubectl
+    - apk add openssl docker
+    - curl -L https://git.io/get_helm.sh | bash
     - doctl auth init --access-token $DIGITALOCEAN_ACCESS_TOKEN
     - doctl kubernetes cluster kubeconfig save sgan-k8s
     - kubectl get pods -n default
