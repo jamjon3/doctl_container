@@ -29,6 +29,8 @@ build_container:
     - cluster
 
 deploy_test:
+  variables:
+    DOCKER_AUTH_CONFIG: $DOCKER_AUTH_CONFIG
   image: 
     name: $DO_REGISTRY/$CI_PROJECT_PATH:latest
     entrypoint: [""]
