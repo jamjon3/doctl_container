@@ -5,3 +5,4 @@ RUN chmod +x ./kubectl \
   && mv ./kubectl /usr/local/bin/kubectl \
   && apk add openssl docker \
   && curl -L https://git.io/get_helm.sh | bash
+ENTRYPOINT []
