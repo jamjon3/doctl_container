@@ -14,8 +14,8 @@ services:
 stages:
   - build
   - deploy
-before_script: 
-  - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
+#before_script: 
+#  - docker login -u $DO_REGISTRY_USER -p $DO_REGISTRY_PASSWORD $DO_REGISTRY
 
 build_container:
   stage: build
