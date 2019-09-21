@@ -34,6 +34,8 @@ deploy_test:
     entrypoint: [""]
   stage: deploy
   script:
+    - doctl auth init --access-token $DIGITALOCEAN_ACCESS_TOKEN
+    - doctl kubernetes cluster kubeconfig save sgan-k8s
     - kubectl get pods -n default
   tags:
     - cluster
