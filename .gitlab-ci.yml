@@ -41,8 +41,8 @@ deploy_test:
     - chmod +x /usr/local/bin/kubectl
     - apk add openssl docker
     - curl -L https://git.io/get_helm.sh | bash
-    - doctl auth init --access-token $DIGITALOCEAN_ACCESS_TOKEN
-    - doctl kubernetes cluster kubeconfig save sgan-k8s
+    - /app/doctl auth init --access-token $DIGITALOCEAN_ACCESS_TOKEN
+    - /app/doctl kubernetes cluster kubeconfig save sgan-k8s
     - kubectl get pods -n default
   tags:
     - cluster
