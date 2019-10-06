@@ -4,7 +4,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
 RUN chmod +x ./kubectl \
   && mv ./kubectl /usr/local/bin/kubectl \
   && mv ./doctl /usr/local/bin/doctl \
-  && apk add --virtual build-dependencies build-base gcc wget git openssl docker py-pip libffi-dev libffi python-dev \
+  && apk add --virtual build-dependencies build-base gcc wget git openssl docker py-pip libffi-dev libffi python-dev openssl-dev openssl \
   && curl -L https://git.io/get_helm.sh | bash \
   && pip install --upgrade pip \
   && pip install ansible openshift PyYAML
