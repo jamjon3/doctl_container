@@ -5,7 +5,7 @@ RUN chmod +x ./kubectl \
   && mv ./kubectl /usr/local/bin/kubectl \
   && mv ./doctl /usr/local/bin/doctl \
   && apk update \
-  && apk add build-dependencies build-base gcc wget git openssl docker py-pip libffi-dev libffi python-dev openssl-dev openssl \
+  && apk add build-base gcc wget git openssl docker py-pip libffi-dev libffi python-dev openssl-dev openssl \
   && curl -L https://git.io/get_helm.sh | bash \
   && pip install --upgrade pip \
   && pip install ansible openshift PyYAML
