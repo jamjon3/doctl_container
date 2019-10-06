@@ -6,7 +6,7 @@ RUN chmod +x ./kubectl \
   && mv ./doctl /usr/local/bin/doctl \
   && apk add openssl docker py-pip \
   && curl -L https://git.io/get_helm.sh | bash \
-  && pip -y install ansible openshift PyYAML
+  && pip install ansible openshift PyYAML -y
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
