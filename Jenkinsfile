@@ -27,7 +27,7 @@ pipeline {
         checkout scm
         sshagent (credentials: [env.SSH_CRED]) {
           sh('apk add curl && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py')
-          sh('pip install ansible')
+          sh('python get-pip.py && pip install ansible')
           sh('rm -Rf /etc/ansible/roles')
           sh('#!/bin/sh -e\n' + '/usr/local/bin/ansible-galaxy install -r ansible/requirements.yml -p /etc/ansible/roles/ -f')
         }
