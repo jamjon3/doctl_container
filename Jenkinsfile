@@ -25,7 +25,7 @@ pipeline {
     stage('Running Ansible Galaxy') {
       steps {
         checkout scm
-        sshagent (credentials: [env.PODS_CRED]) {
+        sshagent (credentials: [env.SSH_CRED]) {
           sh('rm -Rf /etc/ansible/roles')
           sh('#!/bin/sh -e\n' + '/usr/local/bin/ansible-galaxy install -r ansible/requirements.yml -p /etc/ansible/roles/ -f')
         }
