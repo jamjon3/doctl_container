@@ -29,7 +29,6 @@ pipeline {
           sh('apk add curl python3 python3-dev gcc linux-headers openssl-dev libffi-dev musl-dev && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py')
           sh('python3 get-pip.py && pip3 install ansible')
           sh('rm -Rf /etc/ansible/roles')
-          sh('whereis ansible')
           sh('#!/bin/sh -e\n' + 'ansible-galaxy install -r ansible/requirements.yml -p /etc/ansible/roles/ -f')
         }
       }
