@@ -30,7 +30,7 @@ pipeline {
           sh('python3 get-pip.py && pip3 install ansible')
           sh('rm -Rf /etc/ansible/roles')
           sh('whereis ansible')
-          sh('#!/bin/sh -e\n' + '/usr/local/bin/ansible-galaxy install -r ansible/requirements.yml -p /etc/ansible/roles/ -f')
+          sh('#!/bin/sh -e\n' + 'ansible-galaxy install -r ansible/requirements.yml -p /etc/ansible/roles/ -f')
         }
       }
     }
