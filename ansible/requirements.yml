@@ -1,0 +1,5 @@
+--- 
+- src: git@gitlab.com/sgan/roles/sgan-config-role.git
+  version: master
+  scm: git
+  name: config
