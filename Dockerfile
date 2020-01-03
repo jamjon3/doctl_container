@@ -19,16 +19,16 @@ RUN chmod +x ./kubectl \
     openssl \
     curl \
     openssh-client \
-    python \
-    py-boto \
-    py-dateutil \
-    py-httplib2 \
-    py-jinja2 \
-    py-paramiko \
-    py-pip \
+    python3 \
+    py3-boto \
+    py3-dateutil \
+    py3-httplib2 \
+    py3-jinja2 \
+    py3-paramiko \
+    py3-pip \
     tar && \
-  pip install --upgrade pip && \
-  pip install --upgrade ansible openshift PyYAML && \
+  pip3 install --upgrade pip3 && \
+  pip3 install --upgrade ansible openshift PyYAML && \
   mkdir -p /usr/local/etc/ansible/roles && \
   curl -L https://git.io/get_helm.sh | bash && \
   rm -rf /var/cache/apk/*
