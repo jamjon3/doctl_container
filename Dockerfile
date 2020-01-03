@@ -20,7 +20,6 @@ RUN chmod +x ./kubectl \
     curl \
     openssh-client \
     python3 \
-    py3-boto3 \
     py3-dateutil \
     py3-httplib2 \
     py3-jinja2 \
@@ -33,6 +32,7 @@ RUN chmod +x ./kubectl \
   curl -L https://git.io/get_helm.sh | bash && \
   rm -rf /var/cache/apk/*
 
+#    py-boto \
 #    py-yaml \
 #    py-setuptools \
 
