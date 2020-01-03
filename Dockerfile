@@ -14,7 +14,7 @@ RUN chmod +x ./kubectl \
     docker \
     libffi-dev \
     libffi \
-    python-dev \
+    python3-dev \
     openssl-dev \
     openssl \
     curl \
