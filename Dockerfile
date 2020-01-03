@@ -33,7 +33,7 @@ RUN chmod +x ./kubectl \
   curl -L https://git.io/get_helm.sh | bash && \
   rm -rf /var/cache/apk/*
 
-#     py-yaml \
+#    py-yaml \
 #    py-setuptools \
 
 ENV ANSIBLE_GATHERING smart
