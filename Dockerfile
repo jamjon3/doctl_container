@@ -20,7 +20,7 @@ RUN chmod +x ./kubectl \
     curl \
     openssh-client \
     python3 \
-    py3-boto \
+    py3-boto3 \
     py3-dateutil \
     py3-httplib2 \
     py3-jinja2 \
