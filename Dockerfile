@@ -5,8 +5,7 @@ RUN chmod +x ./kubectl \
   && mv ./kubectl /usr/local/bin/kubectl \
   && mv ./doctl /usr/local/bin/doctl \
   && apk update \
-RUN \
-  apk-install \
+  && apk-install \
     build-base \
     gcc \
     wget \
