@@ -26,7 +26,7 @@ RUN chmod +x ./kubectl \
     py3-paramiko \
     py3-pip \
     tar && \
-  pip3 install --upgrade pip && \
+  pip3 install --upgrade pip setuptools && \
   pip3 install --upgrade ansible openshift PyYAML && \
   mkdir -p /usr/local/etc/ansible/roles && \
   curl -L https://git.io/get_helm.sh | bash && \
