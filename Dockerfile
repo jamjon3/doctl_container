@@ -32,7 +32,7 @@ RUN \
     tar && \
   pip install --upgrade pip python-keyczar && \
   pip install ansible openshift PyYAML && \
-  mkdir -p /usr/local/etc/ansible/roles
+  mkdir -p /usr/local/etc/ansible/roles && \
   curl -L https://git.io/get_helm.sh | bash && \
   rm -rf /var/cache/apk/*
 
