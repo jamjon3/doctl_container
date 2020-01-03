@@ -27,7 +27,7 @@ RUN chmod +x ./kubectl \
     py3-pip \
     tar && \
   pip3 install --upgrade pip setuptools && \
-  pip3 install --upgrade ansible openshift PyYAML && \
+  pip3 install --upgrade ansible openshift PyYAML --ignore-installed pyasn1 && \
   mkdir -p /usr/local/etc/ansible/roles && \
   curl -L https://git.io/get_helm.sh | bash && \
   rm -rf /var/cache/apk/*
