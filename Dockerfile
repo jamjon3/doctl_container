@@ -26,14 +26,15 @@ RUN chmod +x ./kubectl \
     py-jinja2 \
     py-paramiko \
     py-pip \
-    py-setuptools \
-    py-yaml \
     tar && \
   pip install --upgrade pip python-keyczar && \
   pip install --upgrade ansible openshift PyYAML && \
   mkdir -p /usr/local/etc/ansible/roles && \
   curl -L https://git.io/get_helm.sh | bash && \
   rm -rf /var/cache/apk/*
+
+#     py-yaml \
+#    py-setuptools \
 
 ENV ANSIBLE_GATHERING smart
 ENV ANSIBLE_HOST_KEY_CHECKING false
