@@ -1,5 +1,11 @@
 FROM digitalocean/doctl:latest
 
+RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
+  && apk add bash sudo shadow nodejs \
+  && apk del .pipeline-deps
+
+LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/bin/node"
+
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl \
   && mv ./kubectl /usr/local/bin/kubectl \
