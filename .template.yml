@@ -11,7 +11,7 @@ steps:
     inputs:
       containerRegistry: 'gl_registry'
       repository: $(containerPath)/$(Build.Repository.Name)
-      arguments: --network=host --build-arg DIGITALOCEAN_ACCESS_TOKEN=$(DIGITALOCEAN_ACCESS_TOKEN)
+      arguments: --network=host
       command: 'build'
       tags: |
         latest
