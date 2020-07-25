@@ -1,18 +1,23 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
+pool: PodmanAgents
+variables:
+  - name: containerPath
+    value: sgan/containers/core
+  - group: DigitalOcean
+  - group: usvoters_pg
 trigger:
 - master
 
-pool: PodmanAgents
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+  - stage: DeployDoctlContainer
+    displayName: Deploy doctl_container
+    jobs:
+      - deployment: DeploymentForDoctlContainer
+        displayName: Build and Push for doctl_container
+        environment: digitalocean
+        pool: PodmanAgents
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: .template.yml
